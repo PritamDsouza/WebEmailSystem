@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Forward Inbox Email</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+       <center>
+            <h:form>
+                <h3>Forward Inbox Email</h3>       
+                <p>To:<h:inputText id ="forwardTo" value="#{emailAccount.forwardTo}"></h:inputText> <br/></p>
+                
+                <p>
+                    <h:selectBooleanCheckbox id="notification" value="#{emailAccount.notification}" ></h:selectBooleanCheckbox><br/>                  
+                    <h5>check if you Want Notification when email is read by a recipient</h5>
+                </p>
+                <p>
+                    <h:commandButton id="submit" value="Send Email"
+                                     action = "forwardConfirmation.xhtml"/>
+                </p>
+                <p>
+                <h:commandButton id="return" value="Return"
+                                 action="welcome.xhtml" />
+                </p>
+            </h:form>        
+        </center>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>View Email</title>
+    </h:head>
+    <h:body>
+        <center>
+        <h:form>
+            From: #{emailAccount.readSelectedDeletedEmail().name}
+            <br/>
+            Subject: #{emailAccount.readSelectedDeletedEmail().title}
+            <br/>
+            Body: <br/>
+            <h:outputText value="${emailAccount.readSelectedDeletedEmail().content}" escape="false"/>
+                                    
+            <p>
+                    <h:commandButton id="delete" value="Delete Forever"
+                                     action = "#{emailAccount.getEmailIDtoDeleteForever(emailAccount.readSelectedDeletedEmail().id)}"/>
+            </p>
+            <p>
+                <h:commandButton id="return" value="Return"
+                                 action="trash.xhtml" />
+            </p>
+        </h:form>
+        </center>
+    </h:body>
+</html>
+

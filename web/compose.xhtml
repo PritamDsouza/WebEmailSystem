@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>compose</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <center>
+            <h:form>
+                <h3>Compose New Email</h3>
+        
+                <p>To:<br/>
+                    <h:inputText id="to" required="true"
+                                 requiredMessage="Sender ID is required to sent Email"
+                                 value="#{emailAccount.to}">
+                    </h:inputText>
+                </p>
+
+                <p>Subject:<br/>
+                    <h:inputText id="title" value="#{emailAccount.title}">
+                    </h:inputText>
+                </p>
+
+                <p>Body:<br/>
+                    <h:inputTextarea id="body" value="#{emailAccount.content}">
+                    </h:inputTextarea>
+                </p>
+
+                <p>
+                    <h:selectBooleanCheckbox id="notification" value="#{emailAccount.notification}" >
+                    </h:selectBooleanCheckbox><br/>
+                    <h5>check if you Want Notification when email is read by a recipient</h5>
+                </p>
+                <p>
+                    <h:commandButton id="submit" value="Send Email"
+                                     action = "composeConfirmation.xhtml"/>
+                </p>
+                <p>
+                <h:commandButton id="return" value="Return"
+                                 action="welcome.xhtml" />
+                </p>
+            </h:form>
+            
+        </center>
+
+    </body>
+</html>

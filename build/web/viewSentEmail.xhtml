@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>View Email</title>
+    </h:head>
+    <h:body>
+        <center>
+        <h:form>
+            To: #{emailAccount.readSelectedSentEmail().name}
+            <br/>
+            Subject: #{emailAccount.readSelectedSentEmail().title}
+            <br/>
+            Body: <br></br>
+            <h:outputText value="${emailAccount.readSelectedSentEmail().content}" escape="false"/>
+            
+            <p>
+                    <h:commandButton id="reply" value="Reply"
+                                     action = "replySentEmail.xhtml"/>
+            </p>
+            
+            <p>
+                    <h:commandButton id="forward" value="Forward"
+                                     action = "forwardSentEmail.xhtml"/>
+            </p>
+            
+            <p>
+                    <h:commandButton id="delete" value="Delete"
+                                     action = "#{emailAccount.getSentEmailIDtoDelete(emailAccount.readSelectedSentEmail().id)}"/>
+            </p>
+            <p>
+                <h:commandButton id="return" value="Return"
+                                 action="sentbox.xhtml" />
+            </p>
+        </h:form>
+        </center>
+    </h:body>
+</html>

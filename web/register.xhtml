@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <head>
+        <title>Register an Email Account</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <center>
+        <h:form>
+            <h3>Create a new email account!</h3>
+            <p>Please enter your name: <br></br>               
+                <h:inputText id ="name" required ="true" 
+                             requiredMessage="Name field cannot be empty!"
+                             title ="Please enter your name!"
+                             value="#{register.name}">
+                </h:inputText>            
+            </p>
+            
+            <p>Please enter your account ID: <br></br> 
+                <h:inputText id="accountID" required="true"
+                             requiredMessage="Account ID field cannot be empty!"
+                             title="Please enter your account ID"
+                             value="#{register.accountID}"
+                             validatorMessage="Account ID must contain letter and digit and it's length must be between 3 and 10.">
+                    <f:validateRegex pattern="(^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{3,10}$)"/>                   
+                </h:inputText>
+            </p>
+            
+            <p>Please enter your password<br></br>
+                <h:inputText id="password" required="true"
+                             requiredMessage="Password field cannot be empty!"
+                             title="Please enter your password"
+                             value="#{register.password}">                     
+                </h:inputText>             
+            </p>
+            
+            <p>
+                <h:commandButton id="register" value ="Register"
+                    action="registerConfirmation.xhtml"/>
+            </p>
+        </h:form>
+        </center>
+    </body>
+</html>
