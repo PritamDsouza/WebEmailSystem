@@ -11,42 +11,43 @@ and open the template in the editor.
     <head>
         <title>compose</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
     </head>
     <body>
-        <center>
+        <center class='emailDisplay'>
             <h:form>
-                <h3>Compose New Email</h3>
+                <h2 class="displayName">Welcome, #{emailAccount.name}</h2>
+                <h1 class="displayPageTitle">Compose New Email</h1>
         
-                <p>To:<br/>
+                <p><label Class='displayText'><b>To:</b></label><br/>
                     <h:inputText id="to" required="true"
                                  requiredMessage="Sender ID is required to sent Email"
                                  value="#{emailAccount.to}">
                     </h:inputText>
                 </p>
 
-                <p>Subject:<br/>
+                <p><label Class='displayText'><b>Subject:</b></label><br/>
                     <h:inputText id="title" value="#{emailAccount.title}">
                     </h:inputText>
                 </p>
 
-                <p>Body:<br/>
-                    <h:inputTextarea id="body" value="#{emailAccount.content}">
+                <p><label Class='displayText'><b>Body:</b></label><br/>
+                    <h:inputTextarea id="body" rows="8" cols="100" value="#{emailAccount.content}">
                     </h:inputTextarea>
                 </p>
 
-                <p>
+                <label Class='displayText'>
                     <h:selectBooleanCheckbox id="notification" value="#{emailAccount.notification}" >
-                    </h:selectBooleanCheckbox><br/>
-                    <h5>check if you Want Notification when email is read by a recipient</h5>
-                </p>
+                    </h:selectBooleanCheckbox>
+                    <b>check if you Want Notification when email is read by a recipient</b>
+                </label>
                 <p>
                     <h:commandButton id="submit" value="Send Email"
-                                     action = "composeConfirmation.xhtml"/>
+                                     action = "composeConfirmation.xhtml" styleClass="optionButton"/>
                 </p>
-                <p>
-                <h:commandButton id="return" value="Return"
-                                 action="welcome.xhtml" />
-                </p>
+                <div class='container'>                
+                    <h:link outcome="welcome.xhtml" class="displaylink">Return</h:link>
+                </div>
             </h:form>
             
         </center>

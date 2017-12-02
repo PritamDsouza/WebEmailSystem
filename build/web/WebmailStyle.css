@@ -15,7 +15,21 @@ body{
     background-color: #fff; 
     border: 5px solid #f1f1f1; 
     border-radius: 2%; 
-    margin: 75px 500px 0 500px;
+    margin: -480px 20px 0 800px;
+}
+
+.signup{
+    background-color: #fff; 
+    border: 5px solid #f1f1f1; 
+    border-radius: 2%; 
+    margin: 40px 400px 0 400px;
+}
+
+.signupDisplay{
+    background-color: #fff; 
+    border: 5px solid #f1f1f1; 
+    border-radius: 2%; 
+    margin: 40px 500px 0 20px;
 }
 
 .emailDisplay{
@@ -27,6 +41,11 @@ body{
 
 .displayText{
     color: deepskyblue;
+    font-size: 20px;
+}
+
+.displayEmail{
+    color: black;
     font-size: 20px;
 }
 
@@ -114,7 +133,7 @@ body{
     opacity: 0.8;
 }
 
-input[type=text], input[type=password] {
+input[type=text], input[type=password]{
     width: 80%;
     padding: 12px 20px;
     margin: 8px 0;

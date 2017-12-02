@@ -9,7 +9,14 @@
         <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
     </h:head>
     <h:body>
-        
+        <center class="signupDisplay">
+            <h:graphicImage value="SignupAd.jpg" height="350" width="600" style="border-radius: 4px;"/>
+            <h4>To Enjoy above cool Features of Email, sign up below </h4>
+            <div class='container'>
+                <h:link outcome="register.xhtml" class="displaylink">
+                Create a new Email Account
+            </h:link><br/></div>
+        </center>
         <center class="loginDisplay">
         <h:form>
             
@@ -34,10 +41,7 @@
                 <h:commandButton id="submit" value="Login" 
                                  action="#{login.login()}" styleClass="richButton"/>
             </p>
-            <div class='container'>
-                <h:link outcome="register.xhtml" class="displaylink">
-                Create a new Email Account
-            </h:link><br/></div>
+            
             
             
         </h:form>

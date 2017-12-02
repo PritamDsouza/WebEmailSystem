@@ -106,7 +106,7 @@ public class EmailAccount {
                         int r = st.executeUpdate("update email set type = 'Read' where id = '" + emailIDtoView + "'");
                         rs = st.executeQuery("select * from email where id = '" + emailIDtoView + "'");
                         if(rs.next()){
-                            if(rs.getString(9).equals("true")){
+                            if(rs.getString(8).equals("true")){
                                 int n = st.executeUpdate("update email set notification = 'false' where id = '" + emailIDtoView + "'");
                                 rs = st.executeQuery("select * from emailaccount where name = '" + e.getName() + "'");
                                 if(rs.next()){
@@ -648,7 +648,7 @@ public class EmailAccount {
                     else{
                         title = rs1.getString(4);
                     }
-                int r = st.executeUpdate("insert into email values('"+id+"','"+accountId +"','"+rs1.getString(2)+"','"+ title+"','"+replyContent +"<br/>*******************************************<br/>"+rs1.getString(5)+"','"+DateAndTime.DateTime()+"','"+"New"+"','"+notification+"')");
+                int r = st.executeUpdate("insert into email values('"+id+"','"+accountId +"','"+rs1.getString(2)+"','"+ title+"','"+replyContent +"<br/>-------------------------------------------------------------------<br/>"+rs1.getString(5)+"','"+DateAndTime.DateTime()+"','"+"New"+"','"+notification+"')");
                 return ("Your Replied Email is sent");
             }
             else{

@@ -10,25 +10,38 @@ and open the template in the editor.
     <head>
         <title>Forward Inbox Email</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
     </head>
     <body>
-       <center>
+       <center class='emailDisplay'>
             <h:form>
-                <h3>Forward Inbox Email</h3>       
-                <p>To:<h:inputText id ="forwardTo" value="#{emailAccount.forwardTo}"></h:inputText> <br/></p>
+                <h2 class="displayName">Welcome, #{emailAccount.name}</h2>
+                <h1 class="displayPageTitle">Forward Inbox Email</h1>     
+                <p><label Class='displayText'><b>Forward To:</b></label><br/>
+                    <h:inputText id ="forwardTo" required="true"
+                                 requiredMessage="Sender ID is required to sent Email"
+                                 value="#{emailAccount.forwardTo}"></h:inputText> 
+                </p>
+                <div class="emailDisplayBox">
+                <label Class='displayEmail'><b>Subject: </b>#{emailAccount.readSelectedEmail().title}</label><br/>
+                <label Class='displayEmail'><b>Body: </b></label><br/>
+                <label Class='displayEmail'><h:outputText value="${emailAccount.readSelectedEmail().content}" escape="false"/></label>
+                </div><br/><br/>
+                <label Class='displayText'>
+                    <h:selectBooleanCheckbox id="notification" value="#{emailAccount.notification}" >
+                    </h:selectBooleanCheckbox>
+                    <b>check if you Want Notification when email is read by a recipient</b>
+                </label>
+                
                 
                 <p>
-                    <h:selectBooleanCheckbox id="notification" value="#{emailAccount.notification}" ></h:selectBooleanCheckbox><br/>                  
-                    <h5>check if you Want Notification when email is read by a recipient</h5>
-                </p>
-                <p>
                     <h:commandButton id="submit" value="Send Email"
-                                     action = "forwardConfirmation.xhtml"/>
+                                     action = "forwardConfirmation.xhtml" styleClass="optionButton"/>
                 </p>
-                <p>
-                <h:commandButton id="return" value="Return"
-                                 action="welcome.xhtml" />
-                </p>
+                
+                <div class='container'>                
+                    <h:link outcome="viewEmail.xhtml" class="displaylink">Return</h:link>
+                </div>
             </h:form>        
         </center>
     </body>

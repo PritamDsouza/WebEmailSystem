@@ -4,25 +4,30 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>View Email</title>
+        <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
     </h:head>
     <h:body>
-        <center>
+        <center class='emailDisplay'>
         <h:form>
-            From: #{emailAccount.readSelectedDeletedEmail().name}
-            <br/>
-            Subject: #{emailAccount.readSelectedDeletedEmail().title}
-            <br/>
-            Body: <br/>
-            <h:outputText value="${emailAccount.readSelectedDeletedEmail().content}" escape="false"/>
-                                    
-            <p>
-                    <h:commandButton id="delete" value="Delete Forever"
-                                     action = "#{emailAccount.getEmailIDtoDeleteForever(emailAccount.readSelectedDeletedEmail().id)}"/>
-            </p>
-            <p>
-                <h:commandButton id="return" value="Return"
-                                 action="trash.xhtml" />
-            </p>
+            <h2 class="displayName">Welcome, #{emailAccount.name}</h2>
+            <h1 class="displayPageTitle">View Deleted Email</h1>
+            <table class="emailDisplayBox">
+                <tr><td><label Class='displayEmail'><b>Name: </b>#{emailAccount.readSelectedDeletedEmail().name}</label></td></tr>
+                <tr><td><label Class='displayEmail'><b>Subject: </b>#{emailAccount.readSelectedDeletedEmail().title}</label></td></tr>
+                <tr><td><label Class='displayEmail'><b>Body: </b></label></td></tr>
+                <tr><td><label Class='displayEmail'><h:outputText value="${emailAccount.readSelectedDeletedEmail().content}" escape="false"/></label></td></tr>
+                <tr align="center">
+                    <td>
+                        <h:commandButton id="delete" value="Delete Forever"
+                                     action = "#{emailAccount.getEmailIDtoDeleteForever(emailAccount.readSelectedDeletedEmail().id)}"
+                                     styleClass="optionButton"/>
+                    </td>
+                </tr>                           
+            </table>
+
+            <div class='container'>                
+                <h:link outcome="trash.xhtml" class="displaylink">Return</h:link>
+            </div>
         </h:form>
         </center>
     </h:body>

@@ -4,34 +4,37 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>View Email</title>
+        <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
     </h:head>
     <h:body>
-        <center>
+        <center class='emailDisplay'>
         <h:form>
-            From: #{emailAccount.readSelectedEmail().name}
-            <br/>
-            Subject: #{emailAccount.readSelectedEmail().title}
-            <br/>
-            Body: <br></br>
-            <h:outputText value="${emailAccount.readSelectedEmail().content}" escape="false"/>
-            
-            <p>
-                    <h:commandButton id="reply" value="Reply"
-                                     action = "reply.xhtml"/>
-            </p>
-            <p>
-                    <h:commandButton id="forward" value="Forward"
-                                     action = "forward.xhtml"/>
-            </p>
-            
-            <p>
-                    <h:commandButton id="delete" value="Delete"
-                                     action = "#{emailAccount.getInboxEmailIDtoDelete(emailAccount.readSelectedEmail().id)}"/>
-            </p>
-            <p>
-                <h:commandButton id="return" value="Return"
-                                 action="welcome.xhtml" />
-            </p>
+            <h2 class="displayName">Welcome, #{emailAccount.name}</h2>
+            <h1 class="displayPageTitle">View Email</h1>
+            <table class="emailDisplayBox">
+                <tr><td colspan="3"><label Class='displayEmail'><b>From: </b>#{emailAccount.readSelectedEmail().name}</label></td></tr>
+                <tr><td colspan="3"><label Class='displayEmail'><b>Subject: </b>#{emailAccount.readSelectedEmail().title}</label></td></tr>
+                <tr><td colspan="3"><label Class='displayEmail'><b>Body: </b></label></td></tr>
+                <tr><td colspan="3"><label Class='displayEmail'><h:outputText value="${emailAccount.readSelectedEmail().content}" escape="false"/></label></td></tr>
+                <tr align="center">
+                    <td>
+                        <h:commandButton id="reply" value="Reply"
+                                     action = "reply.xhtml" styleClass="optionButton"/>
+                    </td>
+                    <td>
+                        <h:commandButton id="forward" value="Forward"
+                                     action = "forward.xhtml" styleClass="optionButton"/>
+                    </td>
+                    <td>
+                        <h:commandButton id="delete" value="Delete"
+                                     action = "#{emailAccount.getInboxEmailIDtoDelete(emailAccount.readSelectedEmail().id)}"
+                                     styleClass="optionButton"/>
+                    </td>
+                </tr>                           
+            </table>
+            <div class='container'>                
+                <h:link outcome="welcome.xhtml" class="displaylink">Return</h:link>
+            </div>
         </h:form>
         </center>
     </h:body>

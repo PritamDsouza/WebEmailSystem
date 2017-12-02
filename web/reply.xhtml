@@ -10,29 +10,34 @@ and open the template in the editor.
     <head>
         <title>Reply Email</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
     </head>
     <body>
-        <center>
+        <center class='emailDisplay'>
             <h:form>
-                <h3>Reply Email</h3>
-        
-                <p>To:#{emailAccount.readSelectedEmail().name}<br/></p>
-                <p>Subject:#{emailAccount.readSelectedEmail().title}<br/></p>
-                <p>Body:<br/>
-                    <h:inputText id ="content" value="#{emailAccount.replyContent}"></h:inputText> 
-                </p>
-                <p>
-                    <h:selectBooleanCheckbox id="notification" value="#{emailAccount.notification}" ></h:selectBooleanCheckbox><br/>                  
-                    <h5>check if you Want Notification when email is read by a recipient</h5>
-                </p>
+                <h2 class="displayName">Welcome, #{emailAccount.name}</h2>
+                <h1 class="displayPageTitle">Reply Email</h1>
+                <div class="emailDisplayBox">
+                    <label Class='displayEmail'><b>To: </b>#{emailAccount.readSelectedEmail().name}</label><br/>
+                    <label Class='displayEmail'><b>Subject: </b>#{emailAccount.readSelectedEmail().title}</label><br/>
+                    <label Class='displayEmail'><b>Body(Old Message): </b></label><br/>
+                    <label Class='displayEmail'><h:outputText value="${emailAccount.readSelectedEmail().content}" escape="false"/></label>
+                </div>
+                <p><label Class='displayText'><b>Reply Message: </b></label><br/>
+                    <h:inputTextarea id ="content" rows="8" cols="100" value="#{emailAccount.replyContent}"></h:inputTextarea> 
+                </p><br/>
+                <label Class='displayText'>
+                    <h:selectBooleanCheckbox id="notification" value="#{emailAccount.notification}" >
+                    </h:selectBooleanCheckbox>
+                    <b>check if you Want Notification when email is read by a recipient</b>
+                </label>
                 <p>
                     <h:commandButton id="submit" value="Send Email"
-                                     action = "replyConfirmation.xhtml"/>
+                                     action = "replyConfirmation.xhtml" styleClass="optionButton"/>
                 </p>
-                <p>
-                <h:commandButton id="return" value="Return"
-                                 action="welcome.xhtml" />
-                </p>
+                <div class='container'>                
+                    <h:link outcome="viewEmail.xhtml" class="displaylink">Return</h:link>
+                </div>
             </h:form>        
         </center>
     </body>
