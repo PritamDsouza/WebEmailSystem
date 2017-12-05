@@ -11,11 +11,19 @@ and open the template in the editor.
         <title>Login Successful</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
+        <script>
+            function myFunction() {
+                if(!window.location.hash) {
+                    window.location = window.location + '#loaded';
+                    window.location.reload();
+                }
+            }
+        </script>
     </head>
-    <body>
+    <body onload="myFunction()">
         <h2></h2>
         <center class='emailDisplay'>
-        <h:form>
+        <h:form>            
             <h2 class="displayName">Welcome, #{emailAccount.name}</h2>
             <h1 class="displayPageTitle">Inbox</h1>
             <h:dataTable id="inbox" 
@@ -48,5 +56,5 @@ and open the template in the editor.
             </div>
         </h:form>
         </center>
-    </body>
+    </body> 
 </html>

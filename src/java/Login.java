@@ -77,7 +77,7 @@ public class Login implements Serializable {
             if(rs.next()){
                 if(password.equals(rs.getString(3))){
                     loggedInAccount = new EmailAccount(rs.getString(1), rs.getString(2));                               
-                    return "welcome";
+                    return "welcome?faces-redirect=true";
                 }
                 else{
                     id = "";

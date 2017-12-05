@@ -11,8 +11,16 @@ and open the template in the editor.
         <title>Trash Folder</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link href="WebmailStyle.css" rel="stylesheet" type="text/css"/>
+        <script>
+            function myFunction() {
+                if(!window.location.hash) {
+                    window.location = window.location + '#loaded';
+                    window.location.reload();
+                }
+            }
+        </script>
     </head>
-    <h:body>
+    <h:body onload="myFunction()">
         <center class="emailDisplay">
            <h:form>   
                <h2 class="displayName">Welcome, #{emailAccount.name}</h2>

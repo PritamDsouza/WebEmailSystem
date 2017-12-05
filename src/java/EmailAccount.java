@@ -754,7 +754,7 @@ public class EmailAccount {
         }
         return null;
     }
-    
+       
     public ArrayList<Email> getTrashEmails() {
         return trashEmails;
     }

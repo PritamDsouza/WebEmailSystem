@@ -7,6 +7,7 @@
     <h:head>
         <title>UHCL Webmail System</title>
         <link rel="stylesheet" type="text/css" href="WebmailStyle.css"/>
+        
     </h:head>
     <h:body>
         <center class="signupDisplay">
@@ -31,18 +32,16 @@
                 </h:inputText>
             </p>    
             <p><label Class='displayText'><b>Password</b></label><br/>
-                <h:inputText id="password" required="true" a:placeholder="Enter Password" requiredMessage="The password field cannot be empty"
+                <h:inputSecret id="password" required="true" a:placeholder="Enter Password" requiredMessage="The password field cannot be empty"
                              value="#{login.password}">
                                  
-                </h:inputText>
+                </h:inputSecret>
             </p>
             
             <p>
                 <h:commandButton id="submit" value="Login" 
                                  action="#{login.login()}" styleClass="richButton"/>
             </p>
-            
-            
             
         </h:form>
             </center>
